@@ -1,0 +1,34 @@
+{
+  "name": "bookstore-api",
+  "version": "1.0.0",
+  "description": "RESTful web service for online bookstore with ratings and reviews",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "bookstore",
+    "api",
+    "express",
+    "nodejs",
+    "rest",
+    "jwt",
+    "session"
+  ],
+  "author": "Backend Developer",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "jsonwebtoken": "^9.0.2",
+    "bcryptjs": "^2.4.3",
+    "axios": "^1.5.0",
+    "cors": "^2.8.5",
+    "body-parser": "^1.20.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
