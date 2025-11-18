@@ -16,7 +16,7 @@ const { isAuthenticated, authenticateJWT, canModifyReview } = require('../middle
  */
 
 // Delete review using session authentication
-router.delete('/review/:isbn/:username', isAuthenticated, canModifyReview, (req, res) => {
+router.delete('/auth/review/:isbn/:username', isAuthenticated, canModifyReview, (req, res) => {
   try {
     const { isbn, username } = req.params;
     const currentUser = req.session.user.username;
@@ -77,7 +77,7 @@ router.delete('/review/:isbn/:username', isAuthenticated, canModifyReview, (req,
 });
 
 // Alternative endpoint - delete own review using ISBN only
-router.delete('/review/:isbn', isAuthenticated, (req, res) => {
+router.delete('/auth/review/:isbn', isAuthenticated, (req, res) => {
   try {
     const isbn = req.params.isbn;
     const username = req.session.user.username;
@@ -138,7 +138,7 @@ router.delete('/review/:isbn', isAuthenticated, (req, res) => {
 });
 
 // Delete review using JWT authentication
-router.delete('/jwt/review/:isbn', authenticateJWT, (req, res) => {
+router.delete('/auth/jwt/review/:isbn', authenticateJWT, (req, res) => {
   try {
     const isbn = req.params.isbn;
     const username = req.user.username;
@@ -203,7 +203,7 @@ router.delete('/jwt/review/:isbn', authenticateJWT, (req, res) => {
  * Method: DELETE
  * Endpoint: /api/auth/reviews/all
  */
-router.delete('/reviews/all', isAuthenticated, (req, res) => {
+router.delete('/auth/reviews/all', isAuthenticated, (req, res) => {
   try {
     const username = req.session.user.username;
     let deletedCount = 0;

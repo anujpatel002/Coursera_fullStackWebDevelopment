@@ -7,11 +7,18 @@ const { searchTitleWithAsync, searchBooksByTitleAsync, getExternalBookDataAsync 
 /**
  * Task 13: Search by Title using Async/Await
  * Method: GET
- * Endpoint: /api/async/title/:title/async
+ * Endpoint: /api/async/books/title/:title
  * Points: 2
  * Description: Use async/await to search books by Title
  * Authentication: Not required
  * Parameters: title - The book title to search for
+ */
+router.get('/books/title/:title', searchTitleWithAsync);
+
+/**
+ * Alternative endpoint for title search
+ * Method: GET
+ * Endpoint: /api/async/title/:title/async
  */
 router.get('/title/:title/async', searchTitleWithAsync);
 

@@ -7,11 +7,18 @@ const { searchAuthorWithPromise, searchBooksByAuthorPromise } = require('../asyn
 /**
  * Task 12: Search by Author using Promises
  * Method: GET
- * Endpoint: /api/async/author/:author/promise
+ * Endpoint: /api/async/books/author/:author
  * Points: 2
  * Description: Use Promises to search books by Author name
  * Authentication: Not required
  * Parameters: author - The author name to search for
+ */
+router.get('/books/author/:author', searchAuthorWithPromise);
+
+/**
+ * Alternative endpoint for author search
+ * Method: GET
+ * Endpoint: /api/async/author/:author/promise
  */
 router.get('/author/:author/promise', searchAuthorWithPromise);
 

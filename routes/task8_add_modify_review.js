@@ -17,7 +17,7 @@ const { isAuthenticated, authenticateJWT, canModifyReview } = require('../middle
  */
 
 // Add or modify review using session authentication
-router.put('/review/:isbn', isAuthenticated, (req, res) => {
+router.put('/auth/review/:isbn', isAuthenticated, (req, res) => {
   try {
     const isbn = req.params.isbn;
     const { rating, comment } = req.body;
@@ -91,7 +91,7 @@ router.put('/review/:isbn', isAuthenticated, (req, res) => {
 });
 
 // Add review using JWT authentication (alternative endpoint)
-router.post('/review/:isbn', authenticateJWT, (req, res) => {
+router.post('/auth/review/:isbn', authenticateJWT, (req, res) => {
   try {
     const isbn = req.params.isbn;
     const { rating, comment } = req.body;
@@ -175,7 +175,7 @@ router.post('/review/:isbn', authenticateJWT, (req, res) => {
  * Method: GET
  * Endpoint: /api/auth/my-reviews
  */
-router.get('/my-reviews', isAuthenticated, (req, res) => {
+router.get('/auth/my-reviews', isAuthenticated, (req, res) => {
   try {
     const username = req.session.user.username;
     const userReviews = [];

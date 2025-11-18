@@ -30,8 +30,8 @@ const asyncFunctions = require('./async_functions/async_functions');
 
 // API routes (mounted before static files to take precedence)
 app.use('/', generalRoutes);        // Tasks 1-5 public endpoints
-app.use('/customer', authRoutes);   // Tasks 6-7 authentication endpoints  
-app.use('/customer', booksRoutes);  // Tasks 8-9 protected endpoints
+app.use('/', authRoutes);           // Tasks 6-9 authentication endpoints (register/login/reviews)
+app.use('/', booksRoutes);          // Tasks 10-13 async endpoints
 
 // Serve static files from public directory (after API routes)
 app.use(express.static('public'));
